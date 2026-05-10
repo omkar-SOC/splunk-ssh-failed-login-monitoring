@@ -1,0 +1,9 @@
+index=* "failed password"
+
+index=* "failed password"
+| rex "from (?<attacker_ip>\d+\.\d+\.\d+\.\d+)"
+| stats count by attacker_ip
+| sort - count
+
+index=* "failed password"
+| timechart count
